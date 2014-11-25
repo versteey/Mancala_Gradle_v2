@@ -1,4 +1,3 @@
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class GameFieldTest extends TestCase {
@@ -7,7 +6,7 @@ public class GameFieldTest extends TestCase {
         Player player1 = new Player(player);
         GameField gfield = new GameField(4,player);
         int result = gfield.getNumberOfStones();
-        Assert.assertEquals(4, result);
+        assertEquals(4, result);
     }
 
     public void test_numberOfStones_becomes_zero(){
@@ -15,7 +14,7 @@ public class GameFieldTest extends TestCase {
         Player player1 = new Player(player);
         GameField gfield = new GameField(4,player);
         gfield.makeZero();
-        Assert.assertEquals(0, gfield.getNumberOfStones());
+        assertEquals(0, gfield.getNumberOfStones());
     }
 
     public void test_not_last_stone_add_1(){
@@ -24,7 +23,7 @@ public class GameFieldTest extends TestCase {
         GameField gfield = new GameField(1, player);
         gfield.notLastStone(1);
         int result = gfield.getNumberOfStones();
-        Assert.assertEquals(2, result);
+        assertEquals(2, result);
     }
 
     public void test_lastStone_myturn_is_over(){
@@ -33,7 +32,7 @@ public class GameFieldTest extends TestCase {
         GameField gfield = new GameField(4, player);
         gfield.lastStone();
         boolean result = player.getTurn();
-        Assert.assertFalse(result);
+        assertFalse(result);
     }
 
     public void test_lastStone_myturn_add_1(){
@@ -42,7 +41,7 @@ public class GameFieldTest extends TestCase {
         GameField gfield = new GameField(4,player);
         gfield.lastStone();
         int result = gfield.getNumberOfStones();
-        Assert.assertEquals(5,result);
+        assertEquals(5,result);
     }
 
     public void test_next_AbstractField(){
@@ -52,7 +51,7 @@ public class GameFieldTest extends TestCase {
         GameField gfield1 = new GameField(3,player);
         gfield.setNext(gfield1);
         Object result = gfield.getNextField();
-        Assert.assertEquals(gfield1, result);
+        assertEquals(gfield1, result);
     }
 
     public void test_make_normal_move_end_own_stone(){
@@ -68,8 +67,8 @@ public class GameFieldTest extends TestCase {
         gfield.makeMove();
         int result = gfield3.getNumberOfStones();
         boolean result1 = player.getTurn();
-        Assert.assertEquals(4, result);
-        Assert.assertFalse(result1);
+        assertEquals(4, result);
+        assertFalse(result1);
     }
 
     public void test_make_normal_move_end_enemy_stone(){
@@ -85,8 +84,8 @@ public class GameFieldTest extends TestCase {
         gfield.makeMove();
         int result = gfield3.getNumberOfStones();
         boolean result1 = player.getTurn();
-        Assert.assertEquals(4, result);
-        Assert.assertFalse(result1);
+        assertEquals(4, result);
+        assertFalse(result1);
     }
 
     public void test_make_move_last_stone_own_kalaha(){
@@ -104,8 +103,8 @@ public class GameFieldTest extends TestCase {
         gfield.makeMove();
         int result = kalaha.getNumberOfStones();
         boolean result1 = player.getTurn();
-        Assert.assertEquals(1, result);
-        Assert.assertTrue(result1);
+        assertEquals(1, result);
+        assertTrue(result1);
     }
 
     public void test_make_move_skip_enemy_kalaha(){
@@ -138,7 +137,7 @@ public class GameFieldTest extends TestCase {
         gfield.setNext(gfield1);
         gfield.makeMove();
         int result = gfield1.getNumberOfStones();
-        Assert.assertEquals(1,result);
+        assertEquals(1,result);
     }
 
     public void test_move_and_steal_from_enemy(){
@@ -179,9 +178,9 @@ public class GameFieldTest extends TestCase {
         Kalaha isMyKalahaConnected = gfield.getOwnKalaha();
         Kalaha isEnemyKalahaConnected = isMyKalahaConnected.getNextField().getOwnKalaha();
         GameField isCycle = (GameField)(isEnemyKalahaConnected.getNextField());
-        Assert.assertNotNull("There was no kalaha found", isMyKalahaConnected);
-        Assert.assertNotNull("There was no enemy kalaha found", isEnemyKalahaConnected);
-        Assert.assertTrue("Game is not a cycle", isCycle == gfield);
+        assertNotNull("There was no kalaha found", isMyKalahaConnected);
+        assertNotNull("There was no enemy kalaha found", isEnemyKalahaConnected);
+        assertTrue("Game is not a cycle", isCycle == gfield);
     }
 
     public void test_choose_possible_gamefield_to_makeMove(){
