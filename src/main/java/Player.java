@@ -14,7 +14,7 @@ public class Player {
      * if a first player is made the now made Player can be made and implemented with the opponent variable correctly.
      * It also changes the opponent variable of the given Player to the newly made Player.
      *
-     * @param player is th already existing Player.
+     * @param player is the already existing Player.
      */
     public Player(Player player){
         this.turn = false;
