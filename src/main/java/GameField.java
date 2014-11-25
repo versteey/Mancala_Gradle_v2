@@ -9,7 +9,7 @@ public class GameField extends AbstractField{
     /**
      * This method initializes a whole mancala board.<br>
      * Every field has as many stones as the creator, except for the Kalaha's.<br>
-     * Those Kalaha's are initialized with value 0.<br><br>
+     * Those Kalaha's are initialized with value 0.<br><br> easy
      *
      * It also sets the fieldLinks in Player
      */
