@@ -14,23 +14,23 @@ public class GameField extends AbstractField{
      * It also sets the fieldLinks in Player
      */
     public void initialize(){
-        Kalaha kalaha = new Kalaha(0,this.getOwner());
+        Kalaha kalaha = new Kalaha(0, this.getOwner());
         Player opponent = this.getOwner().getOpponent();
         Kalaha kalaha1 = new Kalaha(0, opponent);
         this.getOwner().setLinkToGameField(this);
         GameField current = this;
         kalaha1.setNext(current);
-        for(int i = 0; i < 5; i++){
-            GameField temp = new GameField(this.getNumberOfStones(),this.getOwner());
+        for (int i = 0; i < 5; i++){
+            GameField temp = new GameField(this.getNumberOfStones(), this.getOwner());
             current.setNext(temp);
             current = temp;
         }
         current.setNext(kalaha);
-        current = new GameField(this.getNumberOfStones(),opponent);
+        current = new GameField(this.getNumberOfStones(), opponent);
         opponent.setLinkToGameField(current);
         kalaha.setNext(current);
-        for(int i = 0; i < 5; i++){
-            GameField temp = new GameField(this.getNumberOfStones(),opponent);
+        for (int i = 0; i < 5; i++){
+            GameField temp = new GameField(this.getNumberOfStones(), opponent);
             current.setNext(temp);
             current = temp;
         }
@@ -39,7 +39,7 @@ public class GameField extends AbstractField{
     }
 
     public void makeMove() {
-        if(this.getOwner().getTurn()){
+        if (this.getOwner().getTurn()){
             int stones = makeZero();
             getNextField().notLastStone(stones);
         }
@@ -54,7 +54,7 @@ public class GameField extends AbstractField{
     @Override
     public void lastStone() {
         this.addStone();
-        if (this.getNumberOfStones() == 1 && this.getOwner().getTurn() ){
+        if (this.getNumberOfStones() == 1 && this.getOwner().getTurn()){
             Kalaha kalaha = this.getOwnKalaha();
             kalaha.addStone();
             this.makeZero();
@@ -62,8 +62,8 @@ public class GameField extends AbstractField{
             opposite.steal(kalaha);
         }
         // Else do nothing
-        if(this.getOwner().getTurn()) this.getOwner().turnOver();
-        else this.getOwner().getOpponent().turnOver();
+        if(this.getOwner().getTurn()) {this.getOwner().turnOver(); }
+        else { this.getOwner().getOpponent().turnOver(); }
     }
 
     public Kalaha getOwnKalaha(){
@@ -78,10 +78,10 @@ public class GameField extends AbstractField{
     public String[] toPrint(){
         String[] result = new String[14];
         AbstractField current = this;
-        for(int i = 0; i < 14; i++){
+        for (int i = 0; i < 14; i++){
             int stones = current.getNumberOfStones();
-            if(stones < 10) result[i] = " "+stones;
-            else result[i] = ""+stones;
+            if (stones < 10) { result[i] = " "+stones; }
+            else { result[i] = "" + stones; }
             current = current.getNextField();
         }
         return result;
@@ -90,9 +90,9 @@ public class GameField extends AbstractField{
     public static boolean[] choosePossibleGameField(Player player) {
         boolean[] choices = new boolean[6];
         AbstractField current = player.getLinkToGameField();
-        for( int i = 0; i < choices.length; i++ ){
-            if( current.getNumberOfStones() > 0) choices[i] = true;
-            else choices[i] = false;
+        for (int i = 0; i < choices.length; i++){
+            if (current.getNumberOfStones() > 0) { choices[i] = true; }
+            else { choices[i] = false; }
             current = current.getNextField();
         }
         return choices;
@@ -105,8 +105,8 @@ public class GameField extends AbstractField{
      */
     public static boolean isGameOver(Player player){
         boolean result = false;
-        for(boolean b : choosePossibleGameField(player)){
-            if(b) result = true;
+        for (boolean b : choosePossibleGameField(player)){
+            if(b) { result = true; }
         }
         if(!result) {
             clearFields(player);
@@ -117,13 +117,13 @@ public class GameField extends AbstractField{
     public static void clearFields(Player player) {
         GameField current = player.getLinkToGameField();
         Kalaha kalaha = current.getOwnKalaha();
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             current.steal(kalaha);
             current.getNextField();
         }
         current = (GameField) kalaha.getNextField();
         kalaha = current.getOwnKalaha();
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             current.steal(kalaha);
             current.getNextField();
         }
@@ -131,11 +131,11 @@ public class GameField extends AbstractField{
 
     @Override
     public GameField getOpposite(int countPlace, int wanted) {
-        if(countPlace == wanted){
+        if (countPlace == wanted){
             return this;
         }
         else {
-            return this.getNextField().getOpposite( ++countPlace, wanted);
+            return this.getNextField().getOpposite(++countPlace, wanted);
         }
     }
 
@@ -145,6 +145,6 @@ public class GameField extends AbstractField{
             this.addStone();
             this.getNextField().notLastStone(stones - 1);
         }
-        else this.lastStone();
+        else { this.lastStone(); }
     }
 }
