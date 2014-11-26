@@ -9,4 +9,15 @@ public class MainTest extends TestCase {
         creator.initialize();
         assertEquals(creator.getNextField(), player.getGameField(1));
     }
+
+    public void test_toPrint(){
+        Main main = new Main();
+        Player player =  new Player(true);
+        Player opponent = new Player(player);
+        GameField creator = new GameField(4, player);
+        creator.initialize();
+        String[] a = creator.toPrint();
+        String[] b = [" 4"," 4"," 4"," 4"," 4"," 4"," 0"," 4"," 4"," 4"," 4"," 4"," 4"," 0"]
+        assertEquals(b,a);
+    }
 }
