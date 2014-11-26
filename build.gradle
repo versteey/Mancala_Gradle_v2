@@ -31,7 +31,7 @@ pmd {
 
 tasks.withType(Pmd) {
     reports {
-        xml.enabled = false
+        xml.enabled = true
         html.enabled = true
     }
 }
