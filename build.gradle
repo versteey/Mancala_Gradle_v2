@@ -1,10 +1,5 @@
 apply plugin: 'java'
 apply from: 'cobertura.gradle'
-apply plugin: 'jacoco'
-
-task jacocoIntegrationTestReport(type: JacocoReport) {
-    sourceSets sourceSets.main executionData integTest
-}
 
 sourceCompatibility = 1.5
 version = '1.0'
@@ -29,3 +24,14 @@ test {
     }
 }
 
+apply plugin: 'pmd'
+pmd {
+    ignoreFailures = true
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
