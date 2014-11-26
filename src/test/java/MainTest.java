@@ -17,7 +17,7 @@ public class MainTest extends TestCase {
         GameField creator = new GameField(4, player);
         creator.initialize();
         String[] a = creator.toPrint();
-        String[] b = [" 4"," 4"," 4"," 4"," 4"," 4"," 0"," 4"," 4"," 4"," 4"," 4"," 4"," 0"]
+        String[] b = new String[] {" 4"," 4"," 4"," 4"," 4"," 4"," 0"," 4"," 4"," 4"," 4"," 4"," 4"," 0"};
         assertEquals(b,a);
     }
 }
