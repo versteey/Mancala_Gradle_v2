@@ -5,24 +5,19 @@ version = '1.0'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    classpath('com.terrafolio:gradle-jenkins-plugin:1.+')
 }
 
-task compile << {
-    println 'compiling source'
-}
-
-task compileTest(dependsOn: compile) << {
-    println 'compiling unit tests'
-}
-
-task test(dependsOn: [compile, compileTest]) << {
-    println 'running unit tests'
-}
-
-task dist(dependsOn: [compile, test]) << {
-    println 'building the distribution'
+apply plugin: 'jenkins'
+jenkins{
+    servers{
+        demo {
+            url 'http://localhost:8080'
+            secure false
+        }
 }
