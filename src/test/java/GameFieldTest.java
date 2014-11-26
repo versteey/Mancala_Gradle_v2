@@ -224,4 +224,5 @@ public class GameFieldTest extends TestCase {
         assertFalse(player.getTurn());
         assertTrue(player1.getTurn());
     }
+
 }

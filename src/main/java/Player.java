@@ -60,11 +60,4 @@ public class Player {
         return linkToGameField;
     }
 
-    public GameField getGameField(int wanted){
-        GameField current = this.getLinkToGameField();
-        for(int i = 0; i < wanted; i++){
-            current = (GameField)current.getNextField();
-        }
-        return current;
-    }
 }
