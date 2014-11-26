@@ -62,8 +62,12 @@ public class GameField extends AbstractField{
             opposite.steal(kalaha);
         }
         // Else do nothing
-        if(this.getOwner().getTurn()) {this.getOwner().turnOver(); }
-        else { this.getOwner().getOpponent().turnOver(); }
+        if (this.getOwner().getTurn()) {
+            this.getOwner().turnOver();
+        }
+        else {
+            this.getOwner().getOpponent().turnOver();
+        }
     }
 
     public Kalaha getOwnKalaha(){
@@ -80,7 +84,7 @@ public class GameField extends AbstractField{
         AbstractField current = this;
         for (int i = 0; i < 14; i++){
             int stones = current.getNumberOfStones();
-            if (stones < 10) { result[i] = " "+stones; }
+            if (stones < 10) { result[i] = " " + stones; }
             else { result[i] = "" + stones; }
             current = current.getNextField();
         }
