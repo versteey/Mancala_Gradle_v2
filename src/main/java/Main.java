@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args){
         Main main = new Main();
         Player player =  new Player(true);
-        Player opponent = new Player(player);
+        new Player(player);
         GameField creator;
         if(args == null) {
             creator = new GameField(4, player);
