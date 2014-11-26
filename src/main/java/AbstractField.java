@@ -11,7 +11,7 @@ public abstract class AbstractField {
         this.owner = player;
     }
 
-    public int getNumberOfStones(){
+    public int GetNumberOfStones(){
         return numberOfStones;
     }
 

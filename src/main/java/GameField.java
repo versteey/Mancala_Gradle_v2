@@ -21,16 +21,16 @@ public class GameField extends AbstractField{
         GameField current = this;
         kalaha1.setNext(current);
         for(int i = 0; i < 5; i++){
-            GameField temp = new GameField(this.getNumberOfStones(),this.getOwner());
+            GameField temp = new GameField(this.GetNumberOfStones(),this.getOwner());
             current.setNext(temp);
             current = temp;
         }
         current.setNext(kalaha);
-        current = new GameField(this.getNumberOfStones(),opponent);
+        current = new GameField(this.GetNumberOfStones(),opponent);
         opponent.setLinkToGameField(current);
         kalaha.setNext(current);
         for(int i = 0; i < 5; i++){
-            GameField temp = new GameField(this.getNumberOfStones(),opponent);
+            GameField temp = new GameField(this.GetNumberOfStones(),opponent);
             current.setNext(temp);
             current = temp;
         }
@@ -46,7 +46,7 @@ public class GameField extends AbstractField{
     }
 
     public int makeZero() {
-        int result = this.getNumberOfStones();
+        int result = this.GetNumberOfStones();
         this.setNumberOfStones(0);
         return result;
     }
@@ -54,7 +54,7 @@ public class GameField extends AbstractField{
     @Override
     public void lastStone() {
         this.addStone();
-        if (this.getNumberOfStones() == 1 && this.getOwner().getTurn() ){
+        if (this.GetNumberOfStones() == 1 && this.getOwner().getTurn() ){
             Kalaha kalaha = this.getOwnKalaha();
             kalaha.addStone();
             this.makeZero();
@@ -79,7 +79,7 @@ public class GameField extends AbstractField{
         String[] result = new String[14];
         AbstractField current = this;
         for(int i = 0; i < 14; i++){
-            int stones = current.getNumberOfStones();
+            int stones = current.GetNumberOfStones();
             if(stones < 10) result[i] = " "+stones;
             else result[i] = ""+stones;
             current = current.getNextField();
@@ -91,7 +91,7 @@ public class GameField extends AbstractField{
         boolean[] choices = new boolean[6];
         AbstractField current = player.getLinkToGameField();
         for( int i = 0; i < choices.length; i++ ){
-            if( current.getNumberOfStones() > 0) choices[i] = true;
+            if( current.GetNumberOfStones() > 0) choices[i] = true;
             else choices[i] = false;
             current = current.getNextField();
         }
