@@ -44,6 +44,8 @@ public class Main {
             System.err.println(moobe.getLocalizedMessage());
         } catch (IllegalMoveException ime) {
             System.err.println(ime.getLocalizedMessage());
+        }catch{
+            //test pmd
         }
         return result;
     }
