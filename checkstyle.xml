@@ -8,8 +8,6 @@ what the following rules do, please see the checkstyle configuration
 page at http://checkstyle.sourceforge.net/config.html -->
 
 <module name="Checker">
-
-
     <module name="RegexpSingleline">
         <!-- Requires a Google copyright notice in each file.
           Code intended to be open-sourced may have a multi-line copyright
