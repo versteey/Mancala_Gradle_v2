@@ -35,3 +35,8 @@ tasks.withType(Pmd) {
         html.enabled = true
     }
 }
+
+apply plugin: 'findbugs'
+findbugs {
+    ignoreFailures = true
+}
