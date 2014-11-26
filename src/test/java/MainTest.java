@@ -18,6 +18,6 @@ public class MainTest extends TestCase {
         creator.initialize();
         String[] a = creator.toPrint();
         String[] b = new String[] {" 4"," 4"," 4"," 4"," 4"," 4"," 0"," 4"," 4"," 4"," 4"," 4"," 4"," 0"};
-        assertEquals(b,a);
+        assertTrue(b.equals(a));
     }
 }
