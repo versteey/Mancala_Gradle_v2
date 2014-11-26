@@ -1,5 +1,10 @@
 apply plugin: 'java'
 apply from: 'cobertura.gradle'
+apply plugin: 'jacoco'
+
+task jacocoIntegrationTestReport(type: JacocoReport) {
+    sourceSets sourceSets.main executionData integTest
+}
 
 sourceCompatibility = 1.5
 version = '1.0'
