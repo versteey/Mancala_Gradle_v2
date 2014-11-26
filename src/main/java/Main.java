@@ -11,11 +11,12 @@ public class Main {
         Main main = new Main();
         Player player =  new Player(true);
         Player opponent = new Player(player);
+        GameField creator;
         if(args == null) {
-            GameField creator = new GameField(4, player);
+            creator = new GameField(4, player);
         }
         else {
-            GameField creator = new GameField(Integer.parseInt(args[0]), player);
+            creator = new GameField(Integer.parseInt(args[0]), player);
         }
         creator.initialize();
         Player current = player;
