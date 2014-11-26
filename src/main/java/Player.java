@@ -59,5 +59,4 @@ public class Player {
     public GameField getLinkToGameField(){
         return linkToGameField;
     }
-
 }
