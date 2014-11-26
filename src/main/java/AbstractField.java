@@ -5,10 +5,12 @@ public abstract class AbstractField {
     private int numberOfStones;
     private Player owner;
     private AbstractField next;
+    private Player NePPP;
 
     public AbstractField(int numberOfStones, Player player) {
         this.numberOfStones = numberOfStones;
         this.owner = player;
+        this.NePPP = player;
     }
 
     public int getNumberOfStones(){
