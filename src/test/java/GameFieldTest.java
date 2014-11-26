@@ -5,7 +5,7 @@ public class GameFieldTest extends TestCase {
         Player player = new Player(true);
         Player player1 = new Player(player);
         GameField gfield = new GameField(4,player);
-        int result = gfield.GetNumberOfStones();
+        int result = gfield.getNumberOfStones();
         assertEquals(4, result);
     }
 
@@ -14,7 +14,7 @@ public class GameFieldTest extends TestCase {
         Player player1 = new Player(player);
         GameField gfield = new GameField(4,player);
         gfield.makeZero();
-        assertEquals(0, gfield.GetNumberOfStones());
+        assertEquals(0, gfield.getNumberOfStones());
     }
 
     public void test_not_last_stone_add_1(){
@@ -22,7 +22,7 @@ public class GameFieldTest extends TestCase {
         Player player1 = new Player(player);
         GameField gfield = new GameField(1, player);
         gfield.notLastStone(1);
-        int result = gfield.GetNumberOfStones();
+        int result = gfield.getNumberOfStones();
         assertEquals(2, result);
     }
 
@@ -40,7 +40,7 @@ public class GameFieldTest extends TestCase {
         Player player1 = new Player(player);
         GameField gfield = new GameField(4,player);
         gfield.lastStone();
-        int result = gfield.GetNumberOfStones();
+        int result = gfield.getNumberOfStones();
         assertEquals(5,result);
     }
 
@@ -65,7 +65,7 @@ public class GameFieldTest extends TestCase {
         gfield1.setNext(gfield2);
         gfield2.setNext(gfield3);
         gfield.makeMove();
-        int result = gfield3.GetNumberOfStones();
+        int result = gfield3.getNumberOfStones();
         boolean result1 = player.getTurn();
         assertEquals(4, result);
         assertFalse(result1);
@@ -82,7 +82,7 @@ public class GameFieldTest extends TestCase {
         gfield1.setNext(gfield2);
         gfield2.setNext(gfield3);
         gfield.makeMove();
-        int result = gfield3.GetNumberOfStones();
+        int result = gfield3.getNumberOfStones();
         boolean result1 = player.getTurn();
         assertEquals(4, result);
         assertFalse(result1);
@@ -101,7 +101,7 @@ public class GameFieldTest extends TestCase {
         gfield2.setNext(gfield3);
         gfield3.setNext(kalaha);
         gfield.makeMove();
-        int result = kalaha.GetNumberOfStones();
+        int result = kalaha.getNumberOfStones();
         boolean result1 = player.getTurn();
         assertEquals(1, result);
         assertTrue(result1);
@@ -123,8 +123,8 @@ public class GameFieldTest extends TestCase {
         gfield3.setNext(kalaha1);
         kalaha1.setNext(gfield);
         gfield.makeMove();
-        int result = kalaha1.GetNumberOfStones();
-        int result1 = gfield1.GetNumberOfStones();
+        int result = kalaha1.getNumberOfStones();
+        int result1 = gfield1.getNumberOfStones();
         assertEquals("enemy kahala", 0, result);
         assertEquals(5, result1);
     }
@@ -136,7 +136,7 @@ public class GameFieldTest extends TestCase {
         GameField gfield1 = new GameField(1,player1);
         gfield.setNext(gfield1);
         gfield.makeMove();
-        int result = gfield1.GetNumberOfStones();
+        int result = gfield1.getNumberOfStones();
         assertEquals(1,result);
     }
 
@@ -151,7 +151,7 @@ public class GameFieldTest extends TestCase {
         gfield1.setNext(kalaha);
         kalaha.setNext(gfield2);
         gfield.makeMove();
-        int result = kalaha.GetNumberOfStones();
+        int result = kalaha.getNumberOfStones();
         assertEquals(11, result);
     }
 
@@ -166,7 +166,7 @@ public class GameFieldTest extends TestCase {
         gfield1.setNext(kalaha);
         kalaha.setNext(gfield2);
         gfield.makeMove();
-        int result = gfield2.GetNumberOfStones();
+        int result = gfield2.getNumberOfStones();
         assertEquals(1, result);
     }
 
@@ -211,7 +211,7 @@ public class GameFieldTest extends TestCase {
         gfield.initialize();
         player1.getLinkToGameField().addStone();
         GameField.isGameOver(player);
-        int result = player1.getLinkToGameField().GetNumberOfStones();
+        int result = player1.getLinkToGameField().getNumberOfStones();
         assertEquals(0, result);
     }
 

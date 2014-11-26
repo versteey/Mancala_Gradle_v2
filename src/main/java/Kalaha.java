@@ -17,7 +17,7 @@ public class Kalaha extends AbstractField{
     }
 
     public void addStolenStones(int stolenStones) {
-        this.setNumberOfStones(this.GetNumberOfStones() + stolenStones);
+        this.setNumberOfStones(this.getNumberOfStones() + stolenStones);
     }
 
     @Override
