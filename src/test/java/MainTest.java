@@ -7,6 +7,6 @@ public class MainTest extends TestCase {
         Player opponent = new Player(player);
         GameField creator = new GameField(4, player);
         creator.initialize();
-        assertEquals(creator,player.getGameField(0));
+        assertEquals(creator.getNextField(), player.getGameField(1));
     }
 }
