@@ -3,7 +3,7 @@ import junit.framework.TestCase;
 public class GameFieldTest extends TestCase {
     public void test_initialize_gamefield_4_stones(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4,player);
         int result = gfield.getNumberOfStones();
         assertEquals(4, result);
@@ -11,7 +11,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_numberOfStones_becomes_zero(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4,player);
         gfield.makeZero();
         assertEquals(0, gfield.getNumberOfStones());
@@ -19,7 +19,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_not_last_stone_add_1(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(1, player);
         gfield.notLastStone(1);
         int result = gfield.getNumberOfStones();
@@ -28,7 +28,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_lastStone_myturn_is_over(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4, player);
         gfield.lastStone();
         boolean result = player.getTurn();
@@ -37,7 +37,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_lastStone_myturn_add_1(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4,player);
         gfield.lastStone();
         int result = gfield.getNumberOfStones();
@@ -46,7 +46,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_next_AbstractField(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4,player);
         GameField gfield1 = new GameField(3,player);
         gfield.setNext(gfield1);
@@ -56,7 +56,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_make_normal_move_end_own_stone(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(3, player);
         GameField gfield1 = new GameField(3, player);
         GameField gfield2 = new GameField(3, player);
@@ -90,7 +90,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_make_move_last_stone_own_kalaha(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4, player);
         GameField gfield1 = new GameField(3, player);
         GameField gfield2 = new GameField(3, player);
@@ -172,7 +172,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_initialize_gamefields_kalahas(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield = new GameField(4, player);
         gfield.initialize();
         Kalaha isMyKalahaConnected = gfield.getOwnKalaha();
@@ -196,7 +196,7 @@ public class GameFieldTest extends TestCase {
 
     public void test_is_game_over(){
         Player player = new Player(true);
-        Player player1 = new Player(player);
+        new Player(player);
         GameField gfield =  new GameField(0, player);
         gfield.initialize();
         player.setLinkToGameField(gfield);
