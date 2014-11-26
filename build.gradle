@@ -5,25 +5,8 @@ version = '1.0'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    classpath('com.terrafolio:gradle-jenkins-plugin:1.+')
-}
-
-apply plugin: 'jenkins'
-jenkins{
-    //Server Defifnition
-    servers{
-        demo {
-            url 'http://localhost:8080'
-            secure false
-        }
-    }
-    defaultServer servers.demo
-    
-    //Jobs Definitions
-    
 }
