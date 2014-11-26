@@ -75,18 +75,6 @@ public class GameField extends AbstractField{
         kalaha.addStolenStones(stones);
     }
 
-    public String[] toPrint(){
-        String[] result = new String[14];
-        AbstractField current = this;
-        for(int i = 0; i < 14; i++){
-            int stones = current.getNumberOfStones();
-            if(stones < 10) result[i] = " "+stones;
-            else result[i] = ""+stones;
-            current = current.getNextField();
-        }
-        return result;
-    }
-
     public static boolean[] choosePossibleGameField(Player player) {
         boolean[] choices = new boolean[6];
         AbstractField current = player.getLinkToGameField();
@@ -132,7 +120,7 @@ public class GameField extends AbstractField{
     @Override
     public GameField getOpposite(int countPlace, int wanted) {
         if(countPlace == wanted){
-            return (GameField)this;
+            return this;
         }
         else {
             return this.getNextField().getOpposite( ++countPlace, wanted);
