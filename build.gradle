@@ -40,3 +40,9 @@ apply plugin: 'findbugs'
 findbugs {
     ignoreFailures = true
 }
+apply plugin: 'checkstyle'
+
+
+checkstyle {
+    configFile = new File(rootDir, "checkstyle.xml")
+}
