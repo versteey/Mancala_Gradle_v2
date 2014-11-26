@@ -40,3 +40,5 @@ apply plugin: 'findbugs'
 findbugs {
     ignoreFailures = true
 }
+
+apply from: 'checksyle.gradle'
