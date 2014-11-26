@@ -3,15 +3,6 @@ apply from: 'cobertura.gradle'
 
 apply plugin: 'checkstyle'
 
-task checkstyle(type: Checkstyle) {
-    source 'src'
-    include '**/*.java'
-    exclude '**/gen/**'
-
-    // empty classpath
-    classpath = files()
-}
-
 sourceCompatibility = 1.5
 version = '1.0'
 
