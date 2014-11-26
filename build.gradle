@@ -15,3 +15,10 @@ task run(type: JavaExec){
     main = 'Main'
     classpath = runtimeClasspath
 }
+
+test {
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+    }
+}
