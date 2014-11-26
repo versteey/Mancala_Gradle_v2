@@ -15,9 +15,15 @@ dependencies {
 
 apply plugin: 'jenkins'
 jenkins{
+    //Server Defifnition
     servers{
         demo {
             url 'http://localhost:8080'
             secure false
         }
+    }
+    defaultServer servers.demo
+    
+    //Jobs Definitions
+    
 }
