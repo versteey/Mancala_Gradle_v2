@@ -13,5 +13,5 @@ dependencies {
 
 task run(type: JavaExec){
     main = 'Main'
-    classpath = runtimeClass
+    classpath = runtimeClasspath
 }
