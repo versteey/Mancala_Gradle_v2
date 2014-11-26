@@ -12,6 +12,6 @@ dependencies {
 }
 
 task run(type: JavaExec){
-    main = 'Mancala_Gradle_v2/src/main/java/Main'
+    main = 'Main'
     classpath = runtimeClass
 }
