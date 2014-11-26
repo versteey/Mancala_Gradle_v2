@@ -66,8 +66,7 @@ public class GameField extends AbstractField{
             this.getOwner().turnOver();
         }
         else {
-            this.getOwner().getOpponent().turnOver();
-        }
+            this.getOwner().getOpponent().turnOver(); }
     }
 
     public Kalaha getOwnKalaha(){
