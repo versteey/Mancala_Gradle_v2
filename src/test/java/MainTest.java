@@ -14,11 +14,11 @@ public class MainTest extends TestCase {
         new Main();
         Player player =  new Player(true);
         new Player(player);
-        GameField creator = new GameField(4,player);
+        GameField creator = new GameField(4, player);
         creator.initialize();
         String[] a = creator.toPrint();
         String[] b = new String[] {" 4"," 4"," 4"," 4"," 4"," 4"," 0"," 4"," 4"," 4"," 4"," 4"," 4"," 0"};
-        for(int i = 0; i < b.length; i++){
+        for (int i = 0; i < b.length; i++){
             assertTrue(b[i].equals(a[i]));
         }
     }

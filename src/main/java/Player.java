@@ -11,7 +11,8 @@ public class Player {
     }
 
     /**
-     * if a first player is made the now made Player can be made and implemented with the opponent variable correctly.
+     * if a first player is made the now made Player can be made and implemented with
+     * the opponent variable correctly.
      * It also changes the opponent variable of the given Player to the newly made Player.
      *
      * @param player is the already existing Player.
@@ -62,8 +63,8 @@ public class Player {
 
     public GameField getGameField(int wanted){
         GameField current = this.getLinkToGameField();
-        for(int i = 0; i < wanted; i++){
-            current = (GameField)current.getNextField();
+        for (int i = 0; i < wanted; i++){
+            current = (GameField) current.getNextField();
         }
         return current;
     }

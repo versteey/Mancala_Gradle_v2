@@ -65,8 +65,7 @@ public class GameField extends AbstractField{
         if (this.getOwner().getTurn()) {
             this.getOwner().turnOver();
         }
-        else {
-            this.getOwner().getOpponent().turnOver(); }
+        else { this.getOwner().getOpponent().turnOver(); }
     }
 
     public Kalaha getOwnKalaha(){
@@ -109,9 +108,9 @@ public class GameField extends AbstractField{
     public static boolean isGameOver(Player player){
         boolean result = false;
         for (boolean b : choosePossibleGameField(player)){
-            if(b) { result = true; }
+            if (b) { result = true; }
         }
-        if(!result) {
+        if (!result) {
             clearFields(player);
         }
         return !result;

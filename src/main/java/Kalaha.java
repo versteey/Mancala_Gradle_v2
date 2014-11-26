@@ -27,7 +27,7 @@ public class Kalaha extends AbstractField{
 
     @Override
     public void notLastStone(int stones) {
-        if( !this.getOwner().getTurn() ){
+        if (!this.getOwner().getTurn()){
             this.getNextField().notLastStone(stones);
         }
         else {
@@ -35,7 +35,9 @@ public class Kalaha extends AbstractField{
                 this.addStone();
                 this.getNextField().notLastStone(stones - 1);
             }
-            else this.lastStone();
+            else {
+                this.lastStone();
+            }
         }
     }
 }
